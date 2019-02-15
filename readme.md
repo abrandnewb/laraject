@@ -67,3 +67,13 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Installation
+- git clone https://github.com/abrandnewb/laraject.git
+- composer install
+- edit '.env.example' to '.env' 
+- add DB_Host, DB name, DB user name & password
+- then generate application encription key:
+  php artisan key:generate
+- php artisan serve
+- php artisan serve --port 8001 (to change the default port)
