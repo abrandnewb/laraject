@@ -17,6 +17,7 @@ class PostsController extends Controller
     {
         //$posts = Post::all();
         //$posts = DB::select('SELECT * FROM posts');
+        //$posts = DB::table("posts")->get();
         //$posts = Post::orderBy('title','desc')->get();
         //$posts = Post::orderBy('title','desc')->take(1)->get();
         //return Post::where('title','Post two')->get();
