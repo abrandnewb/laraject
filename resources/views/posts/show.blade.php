@@ -3,6 +3,11 @@
 @section('content')
 <a href="/posts" class="btn btn-default">Back</a>
 <h1>{{$post->title}}</h1>
+@if($post->cover_image !== '')
+<img style="width:100%;height:300px;" src="/storage/cover_images/{{$post->cover_image}}">
+@else 
+<img style="width:100%;height:300px;" src="/storage/cover_images/placeholder-img.jpg">
+@endif
 <small>Created at: {{ date('F d, Y', strtotime($post->created_at)) }} by {{$post->user->name}}</small>
 <p>{!!$post->body!!}</p>
 
