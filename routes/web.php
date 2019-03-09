@@ -17,6 +17,8 @@ Route::get('/about', 'pagesController@about');
 
 Route::resource('/posts', 'postsController');
 
+Route::resource('/events', 'eventsController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

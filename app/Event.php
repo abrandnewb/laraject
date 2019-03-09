@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Event extends Model
 {
     public function user() {
         return $this->belongsTo('App\User');
     }
-    public function events() {
-        return $thos->hasMany('App\Event');
+    public function post() {
+        return $this->belongsTo('App\Post');
     }
 }

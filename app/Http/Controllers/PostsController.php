@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Post;
+use App\Event;
 //use DB;
 
 class PostsController extends Controller
@@ -86,6 +87,13 @@ class PostsController extends Controller
         $post->cover_image = $fileNameToStore;
         $post->save();
 
+        //register event
+        $event = new Event();
+        $event->name = 'create';
+        $event->event_item = $post->id;
+        $event->user = auth()->user()->id;
+        $event->save();
+
         return redirect('/posts')->with('success', 'Post created');
     }
 
@@ -161,6 +169,14 @@ class PostsController extends Controller
             $post->cover_image = $fileNameToStore;
         }
         $post->save();
+
+        //register event
+        $event = new Event();
+        $event->name = 'update';
+        $event->event_item = $post->id;
+        $event->user = auth()->user()->id;
+        $event->save();
+
         return redirect('/posts')->with('success', 'Post updated.');
     }
 
@@ -183,6 +199,14 @@ class PostsController extends Controller
             Storage::delete('/public/cover_images/'.$post->cover_image);
         }
         $post->delete();
+
+        //register event
+        $event = new Event();
+        $event->name = 'delete';
+        $event->event_item = $post->id;
+        $event->user = auth()->user()->id;
+        $event->save();
+
         return redirect('/posts')->with('success', 'Post deleted');
     }
 }
