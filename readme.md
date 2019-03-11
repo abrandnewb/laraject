@@ -77,3 +77,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
   php artisan key:generate
 - php artisan serve
 - php artisan serve --port 8001 (to change the default port)
+
+If there is a php version conflict install the required PHP:
+- curl -s http://php-osx.liip.ch/install.sh | bash -s 7.3
+- export PATH=/usr/local/php5/bin:$PATH
